@@ -23,7 +23,7 @@
       '3':
         'name': 'punctuation.section.string-constant.begin.bibtex'
       '4':
-        'name': '.bibtex'
+        'name': 'variable.other.bibtex'
     'end': '\\}'
     'endCaptures':
       '0':
