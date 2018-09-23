@@ -1,0 +1,76 @@
+legacyScopeName: 'text.tex.biber'  # API changed; this is no longer needed
+scopeName: 'text.tex.biber'
+
+fileTypes: ['bib']
+
+id: 'biber' # API changed; this is no longer needed
+
+name: 'Biber'
+
+type: 'tree-sitter'
+
+parser: 'tree-sitter-biber'
+
+folds: [
+  {
+    type: 'comment'
+  }
+  {
+    type: 'junk'
+  }
+]
+
+comments:
+  start: '% '
+
+scopes:
+  'program': 'text.tex.biber'
+  'junk': 'comment.line.character.junk'
+  'comment': 'comment.line.percentage'
+
+  'comment_command': 'comment.block'
+
+  'preamble_command': 'meta.preamble'
+  'preamble_command > name': 'keyword.other.preamble' # TODO: Add this to tree-sitter-biber
+  'string_command > "{"': 'punctuation.section.preamble.begin'
+  'string_command > "("': 'punctuation.section.preamble.begin'
+  'string_command > "}"': 'punctuation.section.preamble.end'
+  'string_command > ")"': 'punctuation.section.preamble.end'
+
+  'string_command': 'meta.string-constant'
+  'string_command > "@"': 'punctuation.definition.keyword'
+  'string_command > name': 'keyword.other.string-constant' # TODO: Add this to tree-sitter-biber
+  'string_command > "{"': 'punctuation.section.string-constant.begin'
+  'string_command > "("': 'punctuation.section.string-constant.begin'
+  'string_command > "}"': 'punctuation.section.string-constant.end'
+  'string_command > ")"': 'punctuation.section.string-constant.end'
+  'string_command > identifier': 'variable.other.key'
+
+  'entry': 'meta.entry'
+  'entry > "@"': 'punctuation.definition.keyword'
+  'entry > name': 'keyword.other.entry-type'
+  'entry > "{"': 'punctuation.section.entry.begin'
+  'entry > "("': 'punctuation.section.entry.begin'
+  'entry > "}"': 'punctuation.section.entry.end'
+  'entry > ")"': 'punctuation.section.entry.end'
+  'entry > key': 'entity.name.type.entry-key'
+
+  'field': 'meta.field'
+  'field > identifier': 'variable.other.key'
+  'field > "="': 'punctuation.separator.key-value'
+
+  'value > "#"': 'punctuation.concat'
+
+  'identifier': 'string.interpolated'
+  'string': [
+    {
+      match: '^"'
+      scopes: 'string.quoted.double'
+    }
+    {
+      match: '^{'
+      scopes: 'string.braced'
+    }
+  ]
+
+  'nonnegative_integer': 'constant.numeric'
