@@ -1,6 +1,5 @@
 name: 'LaTeX'
 scopeName: 'source.latex'
-legacyScopeName: 'text.tex.latex'
 type: 'tree-sitter'
 parser: 'tree-sitter-latex'
 
@@ -16,45 +15,32 @@ fileTypes: [
 
 folds: [
   {
-    type: 'text_env'
-  }
-  {
-    type: 'display_math_env'
-  }
-  {
-    type: 'inline_math_env'
-  }
-  {
-    type: 'math_env'
-  }
-  {
-    type: 'math_opt_text_group'
-  }
-  {
-    type: 'math_text_group'
-  }
-  {
-    type: 'opt_text_group'
-  }
-  {
-    type: 'text_group'
-  }
-  {
-    type: 'at_opt_text_group'
-  }
-  {
-    type: 'at_text_group'
-  }
-  {
-    type: 'verbatim_env'
+    type: [
+      'text_env',
+      'math_env',
+      'inline_math_env',
+      'display_math_env',
+      'verbatim_env',
+      'text_group',
+      'text_group_at',
+      'opt_text_group',
+      'opt_text_group_at',
+      'math_text_group',
+      'math_text_group_at'
+    ],
+    start: { index: 0 },
+    end: { index: -1 }
   }
 ]
+
+comments:
+  start: '%'
 
 scopes:
   'document': 'source.latex'
 
   'comment': 'comment.line'
-  'magic_comment': 'comment.magic'
+  'magic_comment': 'comment.line.magic'
 
   'escaped': 'constant.character.escape'
   'number': 'constant.number'
