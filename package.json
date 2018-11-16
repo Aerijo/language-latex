@@ -8,7 +8,10 @@
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tree-sitter-biber": "0.3.5",
+    "tree-sitter-latex": "latest"
+  },
   "keywords": [
     "latex"
   ]
