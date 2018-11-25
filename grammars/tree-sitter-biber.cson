@@ -68,7 +68,8 @@ scopes:
   ]
   'string > "{", string > "("': 'punctuation.definition.string.begin'
   'string > "}", string > ")"': 'punctuation.definition.string.end'
-  'string > \'"\'': 'punctuation.definition.string.quote' # TODO: Distinguish start and end quote
+  'string > \'"\':nth-child(0)': 'punctuation.definition.string.begin'
+  'string > \'"\'': 'punctuation.definition.string.end'
 
   '"{"': 'punctuation.definition.group.begin'
   '"}"': 'punctuation.definition.group.end'
