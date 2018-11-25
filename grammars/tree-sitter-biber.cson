@@ -27,8 +27,6 @@ scopes:
   'comment': 'comment.line.percentage'
 
   'comment_command': 'comment.block'
-  'comment_command > "@"': 'keyword.other.comment, punctuation.definition.keyword.comment'
-  'comment_command > name': 'keyword.other.comment'
 
   'preamble_command': 'meta.preamble'
   'preamble_command > "@"': 'keyword.other.preamble, punctuation.definition.keyword.preamble'
@@ -68,8 +66,11 @@ scopes:
       scopes: 'string.braced'
     }
   ]
-  'string > "{", string > "("': 'punctuation.definition.string.start'
+  'string > "{", string > "("': 'punctuation.definition.string.begin'
   'string > "}", string > ")"': 'punctuation.definition.string.end'
   'string > \'"\'': 'punctuation.definition.string.quote' # TODO: Distinguish start and end quote
+
+  '"{"': 'punctuation.definition.group.begin'
+  '"}"': 'punctuation.definition.group.end'
 
   'integer': 'constant.numeric'
