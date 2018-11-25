@@ -5,6 +5,7 @@
 '.text.bibtex':
   'editor':
     'foldEndPattern': '^\\s*[)}]\\s*$'
+    'commentStart': '% '
 '.text.tex.latex':
   'editor':
     'increaseIndentPattern': '^\\s*\\\\begin\\{(?!document).*\\}'
