@@ -27,28 +27,29 @@ scopes:
   'comment': 'comment.line.percentage'
 
   'comment_command': 'comment.block'
-  'preamble_command > "@"': 'punctuation.definition.keyword.comment'
-  'preamble_command > name': 'keyword.other.comment'
+  'comment_command > "@"': 'keyword.other.comment, punctuation.definition.keyword.comment'
+  'comment_command > name': 'keyword.other.comment'
 
   'preamble_command': 'meta.preamble'
-  'preamble_command > "@"': 'punctuation.definition.keyword.preamble'
+  'preamble_command > "@"': 'keyword.other.preamble, punctuation.definition.keyword.preamble'
   'preamble_command > name': 'keyword.other.preamble'
   'preamble_command > "{", preamble_command > "("': 'punctuation.section.preamble.begin'
   'preamble_command > "}", preamble_command > ")"': 'punctuation.section.preamble.end'
 
   'string_command': 'meta.string-constant'
-  'string_command > "@"': 'punctuation.definition.keyword.string-constant'
+  'string_command > "@"': 'keyword.other.string-constant, punctuation.definition.keyword.string-constant'
   'string_command > name': 'keyword.other.string-constant'
   'string_command > "{", string_command > "("': 'punctuation.section.string-constant.begin'
   'string_command > "}", string_command > ")"': 'punctuation.section.string-constant.end'
   'string_command > identifier': 'variable.other.key'
 
   'entry': 'meta.entry'
-  'entry > "@"': 'punctuation.definition.keyword.entry'
+  'entry > "@"': 'keyword.other.entry-type, punctuation.definition.keyword.entry'
   'entry > name': 'keyword.other.entry-type'
   'entry > "{", entry > "("': 'punctuation.section.entry.begin'
   'entry > "}", entry > ")"': 'punctuation.section.entry.end'
   'entry > key': 'entity.name.type.entry-key'
+  'entry > ","': 'punctuation.separator.field'
 
   'field': 'meta.field'
   'field > identifier': 'variable.other.key'
@@ -67,5 +68,8 @@ scopes:
       scopes: 'string.braced'
     }
   ]
+  'string > "{", string > "("': 'punctuation.definition.string.start'
+  'string > "}", string > ")"': 'punctuation.definition.string.end'
+  'string > \'"\'': 'punctuation.definition.string.quote' # TODO: Distinguish start and end quote
 
   'integer': 'constant.numeric'
