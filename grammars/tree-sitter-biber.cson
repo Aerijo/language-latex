@@ -15,6 +15,11 @@ folds: [
     end: {index: -1}
   }
   {
+    type: 'string'
+    start: {index: 0}
+    end: {index: -1}
+  }
+  {
     type: 'junk'
   }
   {
