@@ -1,6 +1,6 @@
 'scopeName': 'text.tex.latex.beamer'
 'name': 'LaTeX Beamer'
-'fileTypes': []
+'fileTypes': ['tex']
 'contentRegex': '^\\\\documentclass(\\[.*\\])?\\{beamer\\}'
 'patterns': [
   {
